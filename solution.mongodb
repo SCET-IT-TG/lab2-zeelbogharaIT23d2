@@ -5,83 +5,84 @@ db = db.getSiblingDB("companyDB");
 
 db.employees.insertMany([
   {
-    name: "Aarav",
-    department: "Finance",
-    salary: 75000,
-    age: 28
-  },
-  {
-    name: "Isha",
+    name: "Deep",
     department: "IT",
-    salary: 95000,
-    age: 26
+    salary: 100000,
+    age: 25
   },
   {
-    name: "Kunal",
-    department: "Sales",
-    salary: 42000,
-    age: 31
-  },
-  {
-    name: "Priya",
+    name: "Neel",
     department: "HR",
-    salary: 38000,
-    age: 29
+    salary: 50000,
+    age: 24
   },
   {
-    name: "Rohan",
-    department: "Operations",
-    salary: 60000,
-    age: 35
+    name: "Manan",
+    department: "Sales",
+    salary: 45000,
+    age: 25
   },
   {
-    name: "Meera",
+    name: "Manav",
     department: "Marketing",
-    salary: 52000,
-    age: 27
+    salary: 5000,
+    age: 30
+  },
+  {
+    name: "Rahul",
+    department: "Marketing",
+    salary: 35000,
+    age: 33
   }
 ]);
+
 
 /*****************************************
 Exercise 2: Simple Find Queries
 *****************************************/
 
 db.employees.find({ department: "IT" });
-db.employees.find({ name: "Priya" });
+
+db.employees.find({ name: "Rahul" });
+
 
 /******************************************
 Exercise 3: Formatting & Distinct
 ******************************************/
 db.employees.find().pretty();
+
 db.employees.distinct("department");
+
 
 /*********************************************
 Exercise 4: Salary Analysis ($gt, $lt)
 *********************************************/
 
-db.employees.find({
-  salary: { $gt: 60000 }
+db.employees.find({ 
+  salary: { $gt: 50000 } 
 });
 
-db.employees.find({
-  salary: { $lt: 40000 }
+db.employees.find({ 
+  salary: { $lt: 30000 } 
 });
+
 
 /*********************************************
 Exercise 5: Age Filtering ($gte, $lte)
 *********************************************/
 
-db.employees.find({
-  age: { $gte: 30 }
+db.employees.find({ 
+  age: { $gte: 30 } 
 });
 
-db.employees.find({
-  age: { $lte: 28 }
+db.employees.find({ 
+  age: { $lte: 25 } 
 });
+
 
 /***********************************
 Exercise 6: Range Queries/
 ***********************************
 db.employees.find({
-  salary: { $gte: 45000, $lte: 80000 }
+  salary: { $gte: 40000, $lte: 80000 }
 });
