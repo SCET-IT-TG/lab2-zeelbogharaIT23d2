@@ -1,88 +1,76 @@
-/**********************************************
-Exercise 1: Data Setup (Updated Data)
-***********************************************/
+/*Exercise 1: Data Setup*/
+
 db = db.getSiblingDB("companyDB");
 
 db.employees.insertMany([
   {
-    name: "Deep",
+    _id : 1,
+    name: "Rahul",
     department: "IT",
-    salary: 100000,
-    age: 25
+    salary: 65000,
+    age: 32
   },
   {
-    name: "Neel",
+    _id : 2,
+    name: "Anita",
     department: "HR",
-    salary: 50000,
+    salary: 28000,
     age: 24
   },
   {
-    name: "Manan",
+    _id : 3,
+    name: "Suresh",
     department: "Sales",
     salary: 45000,
-    age: 25
+    age: 29
   },
   {
-    name: "Manav",
-    department: "Marketing",
-    salary: 5000,
-    age: 30
+    _id : 4,
+    name: "Priya",
+    department: "IT",
+    salary: 75000,
+    age: 27
   },
   {
-    name: "Rahul",
-    department: "Marketing",
-    salary: 35000,
-    age: 33
+    _id : 5,
+    name: "Kiran",
+    department: "HR",
+    salary: 52000,
+    age: 35
   }
 ]);
 
 
-/*****************************************
-Exercise 2: Simple Find Queries
-*****************************************/
+/*Exercise 2: Simple Find Queries*/
 
 db.employees.find({ department: "IT" });
 
 db.employees.find({ name: "Rahul" });
 
 
-/******************************************
-Exercise 3: Formatting & Distinct
-******************************************/
+/*Exercise 3: Formatting & Distinct*/
+
 db.employees.find().pretty();
 
 db.employees.distinct("department");
 
 
-/*********************************************
-Exercise 4: Salary Analysis ($gt, $lt)
-*********************************************/
+/*Exercise 4: Salary Analysis ($gt, $lt)*/
 
-db.employees.find({ 
-  salary: { $gt: 50000 } 
-});
+db.employees.find({ salary: { $gt: 50000 } });
 
-db.employees.find({ 
-  salary: { $lt: 30000 } 
-});
+db.employees.find({ salary: { $lt: 30000 } });
 
 
-/*********************************************
-Exercise 5: Age Filtering ($gte, $lte)
-*********************************************/
+/*Exercise 5: Age Filtering ($gte, $lte)*/
 
-db.employees.find({ 
-  age: { $gte: 30 } 
-});
+db.employees.find({ age: { $gte: 30 } });
 
-db.employees.find({ 
-  age: { $lte: 25 } 
-});
+db.employees.find({ age: { $lte: 25 } });
 
 
-/***********************************
-Exercise 6: Range Queries/
-***********************************
+/*Exercise 6: Range Queries*/
+
 db.employees.find({
   salary: { $gte: 40000, $lte: 80000 }
 });
